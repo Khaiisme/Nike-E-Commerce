@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const User = require("./models/User");
 
 async function setupAdmin() {
-  await mongoose.connect("0ef6d7cbf8f0ff3c3982a66c55a7569c3ccc5f63");
+  await mongoose.connect("mongodb+srv://kn579309:eUQ7eAmKe.Ly2n5@cluster0.l3ply.mongodb.net/");
 
   const adminEmail = "khainguyen999999@gmail.com"; //
   const adminPassword = "12345";
