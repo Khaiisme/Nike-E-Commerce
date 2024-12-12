@@ -3,10 +3,10 @@ const bcrypt = require("bcrypt");
 const User = require("./models/User");
 
 async function setupAdmin() {
-  await mongoose.connect("Your Database");
+  await mongoose.connect("0ef6d7cbf8f0ff3c3982a66c55a7569c3ccc5f63");
 
-  const adminEmail = ""; //
-  const adminPassword = "";
+  const adminEmail = "khainguyen999999@gmail.com"; //
+  const adminPassword = "12345";
 
   // Check if an admin user already exists
   let adminUser = await User.findOne({ email: adminEmail });
