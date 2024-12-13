@@ -2,4 +2,3 @@ node_modules
 .env
 dist/
 setupAdmin.js
-helpers/paypal.js
