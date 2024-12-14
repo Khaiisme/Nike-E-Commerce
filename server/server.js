@@ -26,7 +26,10 @@ const PORT = process.env.PORT ;
 
 app.use(
   cors({
-    origin: "*",
+    origin: [
+      "http://localhost:5173", // For development
+      "https://nike-e-commerce.onrender.com", // For production
+    ],
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
