@@ -4,7 +4,6 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 require("dotenv").config();
 
-
 const authRouter = require("./routes/auth/auth-routes");
 const adminProductsRouter = require("./routes/admin/products-routes");
 const adminOrderRouter = require("./routes/admin/order-routes");
@@ -22,7 +21,15 @@ mongoose
   .catch((error) => console.log(error));
 
 const app = express();
-const PORT = process.env.PORT ;
+const PORT = process.env.PORT;
+app.use((req, res, next) => {
+  if (req.method === "OPTIONS") {
+    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    return res.status(200).json({});
+  }
+  next();
+});
 
 app.use(
   cors({
