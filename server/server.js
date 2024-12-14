@@ -35,7 +35,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173", // For development
-      "https://nike-e-commerce.onrender.com", // For production
+      "https://nike-e-commerce-1.onrender.com", // For production
     ],
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
