@@ -65,7 +65,17 @@ app.use("/api/shop/address", shopAddressRouter);
 app.use("/api/shop/order", shopOrderRouter);
 app.use("/api/shop/search", shopSearchRouter);
 app.use("/api/shop/review", shopReviewRouter);
-
 app.use("/api/common/feature", FeatureRouter);
+
+const path = require("path");
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "client/build")));
+
+// Catch-all route to serve index.html for SPA
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
+
 
 app.listen(PORT, () => console.log(`Server is now running on port ${PORT}`));
