@@ -69,12 +69,13 @@ app.use("/api/common/feature", FeatureRouter);
 
 const path = require("path");
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, "client/build")));
+// Serve static files from the Vite build output (dist folder)
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
-// Catch-all route to serve index.html for SPA
+// Catch-all route to serve React's index.html
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  console.log("catch-all")
+  res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
 });
 
 
