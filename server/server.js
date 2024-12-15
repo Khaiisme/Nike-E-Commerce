@@ -69,18 +69,11 @@ app.use("/api/common/feature", FeatureRouter);
 
 const path = require("path");
 
-app.use(express.static(path.join(__dirname, 'client', 'dist')));
+app.use(express.static(path.join(__dirname, '../client/dist'))); // Notice the `../` for correct relative path
 
-// app.get('*', (req, res) => {
-//   console.log("catch all")
-//   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
-// });
-
-const distPath = path.join(__dirname, 'client', 'dist');
-console.log("Dist folder path: ", distPath);
-app.use(express.static(distPath));
 app.get('*', (req, res) => {
-  res.sendFile(path.join(distPath, 'index.html'));
+  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
 });
+
 
 app.listen(PORT, () => console.log(`Server is now running on port ${PORT}`));
