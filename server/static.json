@@ -1,9 +1,7 @@
 {
-    "routes": [
-      {
-        "src": "/.*",
-        "dest": "/index.html"
-      }
-    ]
+  "root": "client/dist/",
+  "cleanUrls": true,
+  "routes": {
+    "/**": "index.html"
   }
-  
+}
