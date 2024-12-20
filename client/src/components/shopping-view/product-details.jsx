@@ -89,6 +89,14 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
         toast({
           title: "Review added successfully!",
         });
+      } else {
+        toast({
+          title: "Failed to add review.",
+          description: data.payload.message || "Something went wrong. Please try again.",
+          status: "error", // optional: differentiate success and error
+          duration: 3000,
+          isClosable: true,
+        });
       }
     });
   }
