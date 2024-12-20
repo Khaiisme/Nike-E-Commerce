@@ -98,7 +98,16 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
           isClosable: true,
         });
       }
-    });
+    }).catch(() => {
+      // In case the dispatch itself fails
+      toast({
+        title: "Error",
+        description: "You need to purchase first ",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    });;
   }
 
   useEffect(() => {
